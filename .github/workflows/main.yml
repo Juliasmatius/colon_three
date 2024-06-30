@@ -10,7 +10,6 @@ jobs:
         with:
           flutter-version: 3.19.0
       - run: ls
-      - run: cd lib
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
