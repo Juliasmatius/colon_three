@@ -12,7 +12,7 @@ jobs:
       - run: ls
       - run: flutter pub get
       - run: flutter build apk
-      
+      - run: echo "::set-env name=NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
       
       - uses: actions/upload-artifact@v4
         with:
@@ -25,6 +25,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/app/outputs/flutter-apk/app-release.apk
           asset_name: ${{ matrix.asset_name }}
-          tag: ${{ date +%s }}
+          tag: ${{ env.NOW }}
 
       
